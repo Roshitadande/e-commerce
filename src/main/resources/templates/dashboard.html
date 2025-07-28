@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Dashboard</title></head>
+<style>
+  body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+  }
+  .form-container {
+      background: white;
+      color: black;
+      width: 300px;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+  }
+</style>
+
+<body>
+<h1>Hello, <span th:text="${username}"></span>!</h1>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>
