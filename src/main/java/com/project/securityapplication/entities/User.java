@@ -1,9 +1,8 @@
 package com.project.securityapplication.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class User {
@@ -13,6 +12,8 @@ public class User {
 
     private String username;
     private String email;
+
+
     private String password;
 
     public Long getId() {
@@ -45,5 +46,26 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    private boolean enabled = true;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    public Set<Role> roles;
+
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
